@@ -1,10 +1,9 @@
--   id: nonemoji
-    name: nonemoji
-    entry: nonemoji
-    language: python
-    types_or: [python, pyi]
-    description: ''
-    require_serial: true
-    additional_dependencies: []
-    minimum_pre_commit_version: '2.9.2'
-    stages: prepare-commit-msg
+- id: nonemoji
+  name: nonemoji
+  entry: nonemoji
+  language: python
+  types_or: [python, pyi]
+  description: ""
+  require_serial: true
+  minimum_pre_commit_version: "2.9.2"
+  stages: [prepare-commit-msg]

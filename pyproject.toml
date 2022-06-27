@@ -8,10 +8,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.7.3"
-prompt-toolkit = "^3.0.28"
+noneprompt = "^0.1.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^22.1.0"
+black = "^22.3.0"
 isort = "^5.10.1"
 
 [tool.poetry.scripts]
@@ -34,5 +34,5 @@ extra_standard_library = ["typing_extensions"]
 
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 from unicodedata import name
+from dataclasses import dataclass
 
 
 @dataclass
