@@ -2,7 +2,7 @@
 name = "nonemoji"
 version = "0.1.0"
 description = "gitmoji-cli written in python"
-authors = ["jigsaw <j1g5aw@foxmail.com>"]
+authors = ["jigsaw <j1g5aw@foxmail.com>", "yanyongyu <yyy@nonebot.dev>"]
 license = "MIT"
 readme = "README.md"
 
@@ -10,7 +10,7 @@ readme = "README.md"
 python = "^3.7.3"
 noneprompt = "^0.1.0"
 
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.dev-dependencies]
 black = "^22.3.0"
 isort = "^5.10.1"
 
