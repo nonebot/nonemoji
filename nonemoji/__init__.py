@@ -1,10 +1,17 @@
-from typing import List
+import re
+from typing import List, Match, Optional
 
 from wcwidth import wcswidth
-from prompt_tookit.style import Style
+from prompt_toolkit.styles import Style
 from noneprompt import Choice, ListPrompt
 
 from .emoji import emojis
+
+MESSAGE_REGEX = re.compile(r"^:(?P<emoji>\w+):(?P<message>[\s\S]+)$")
+
+
+def validate(message: str) -> Optional[Match[str]]:
+    return MESSAGE_REGEX.match(message)
 
 
 def main():
@@ -28,8 +35,6 @@ def main():
         )
         for emoji in emojis
     ]
-    print(
-        ListPrompt("Where to store the plugin?", src_choices)
-        .prompt(style=default_style)
-        .data
+    result = ListPrompt("Where to store the plugin?", src_choices).prompt(
+        style=default_style
     )
