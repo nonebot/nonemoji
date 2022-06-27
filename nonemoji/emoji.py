@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(frozen=True)
 class Emoji:
     name: str
     code: str
@@ -9,8 +9,8 @@ class Emoji:
     description: str
 
 
-emojis = [
-    Emoji(**emoji)
+EMOJIS = {
+    emoji["name"]: Emoji(**emoji)
     for emoji in [
         {
             "emoji": "✨",
@@ -295,4 +295,4 @@ emojis = [
             "name": "fire",
         },
     ]
-]
+}
