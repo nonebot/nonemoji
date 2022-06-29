@@ -60,6 +60,8 @@ def prompt(original_msg: Optional[str] = None, emoji: Optional[str] = None) -> s
                 .data
             )
         message.content = InputPrompt(
-            "Enter the commit title:", default_text=message.content
+            "Enter the commit title:",
+            default_text=message.content,
+            validator=lambda x: bool(x.strip()),
         ).prompt()
     return message.to_string()
