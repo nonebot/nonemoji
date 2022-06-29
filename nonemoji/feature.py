@@ -49,7 +49,7 @@ def prompt(original_msg: Optional[str] = None, emoji: Optional[str] = None) -> s
                     "Choose a gitmoji:",
                     [
                         Choice(
-                            f"{emoji.emoji}{' ' * (4 - wcswidth(emoji.emoji))}- {emoji.description}",
+                            emoji.to_string(),
                             emoji,
                         )
                         for emoji in EMOJIS.values()

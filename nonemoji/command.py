@@ -3,6 +3,7 @@ import subprocess
 from pathlib import Path
 from typing import List, Optional
 
+from .emoji import EMOJIS
 from .feature import prompt
 
 
@@ -23,8 +24,13 @@ def handle_commit(
     new_msg = prompt(message, emoji=emoji)
     pargs = ["git", "commit", *args, "-m", new_msg]
     try:
-        subprocess.run(pargs)
+        subprocess.run(pargs, check=True)
     except Exception as e:
         print("Oops! An error ocurred while committing: ", e)
         print("You can run the same commit with this command:")
         print(f"\t{' '.join(shlex.quote(arg) for arg in pargs)}")
+
+
+def handle_list(**_):
+    text = "\n".join(emoji.to_string() for emoji in EMOJIS.values())
+    print(text)

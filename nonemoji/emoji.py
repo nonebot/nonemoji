@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from wcwidth import wcswidth
+
 
 @dataclass(frozen=True)
 class Emoji:
@@ -7,6 +9,9 @@ class Emoji:
     code: str
     emoji: str
     description: str
+
+    def to_string(self) -> str:
+        return f"{self.emoji}{' ' * (4 - wcswidth(self.emoji))}- {self.description}"
 
 
 EMOJIS = {
