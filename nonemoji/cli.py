@@ -16,7 +16,7 @@ commit_parser = _subparsers.add_parser("commit", help="Run as an independent too
 commit_parser.add_argument("-e", "--emoji", help="Emoji to use")
 commit_parser.add_argument("-m", "--message", help="Commit message")
 commit_parser.add_argument(
-    "-a", "--args", nargs=REMAINDER, help="Argument to pass to the git"
+    "--", nargs=REMAINDER, help="Argument to pass to the git", dest="args"
 )
 commit_parser.set_defaults(func=handle_commit)
 

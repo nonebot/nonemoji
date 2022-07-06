@@ -22,7 +22,7 @@ def handle_commit(
 ):
     args = args or []
     new_msg = prompt(message, emoji=emoji)
-    pargs = ["git", "commit", *args, "-m", new_msg]
+    pargs = ["git", "commit", "-m", new_msg, *args]
     try:
         subprocess.run(pargs, check=True)
     except Exception as e:
