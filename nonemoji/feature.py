@@ -35,6 +35,23 @@ def transform(message: str) -> Message:
     return Message(None, message)
 
 
+def prompt_emoji() -> Emoji:
+    return (
+        ListPrompt(
+            "Choose a gitmoji:",
+            [
+                Choice(
+                    emoji.to_string(),
+                    emoji,
+                )
+                for emoji in EMOJIS.values()
+            ],
+        )
+        .prompt()
+        .data
+    )
+
+
 def prompt(original_msg: Optional[str] = None, emoji: Optional[str] = None) -> str:
     if emoji:
         message = Message(EMOJIS.get(emoji), original_msg)
@@ -42,26 +59,15 @@ def prompt(original_msg: Optional[str] = None, emoji: Optional[str] = None) -> s
         message = transform(original_msg)
     else:
         message = Message()
+
     with contextlib.suppress(Exception):
         if not message.emoji:
-            message.emoji = (
-                ListPrompt(
-                    "Choose a gitmoji:",
-                    [
-                        Choice(
-                            emoji.to_string(),
-                            emoji,
-                        )
-                        for emoji in EMOJIS.values()
-                    ],
-                    allow_filter=False,
-                )
-                .prompt()
-                .data
-            )
+            message.emoji = prompt_emoji()
+
         message.content = InputPrompt(
             "Enter the commit title:",
             default_text=message.content,
             validator=lambda x: bool(x.strip()),
         ).prompt()
+
     return message.to_string()

@@ -1,10 +1,26 @@
 import shlex
+import contextlib
 import subprocess
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Callable, Optional
+
+from noneprompt import Choice, ListPrompt, CancelledError
 
 from .emoji import EMOJIS
-from .feature import prompt
+from .feature import prompt, prompt_emoji
+
+
+def handle_no_subcommand(**_):
+    with contextlib.suppress(CancelledError):
+        result = ListPrompt[Callable[..., None]](
+            "What do you want to do?",
+            [
+                Choice("Start to commit changes", handle_commit),
+                Choice("List all available emojis", handle_list),
+                Choice("Search for an emoji", handle_search),
+            ],
+        ).prompt()
+        result.data()
 
 
 def handle_hook(commit_msg_file: str, **_):
@@ -34,3 +50,7 @@ def handle_commit(
 def handle_list(**_):
     text = "\n".join(emoji.to_string() for emoji in EMOJIS.values())
     print(text)
+
+
+def handle_search(**_):
+    print(prompt_emoji())
