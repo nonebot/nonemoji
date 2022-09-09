@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nonemoji"
-version = "0.1.2"
+version = "0.1.3"
 description = "Simple gitmoji cli written in python"
 authors = ["jigsaw <j1g5aw@foxmail.com>", "yanyongyu <yyy@nonebot.dev>"]
 license = "MIT"
