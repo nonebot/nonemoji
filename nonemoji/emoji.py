@@ -255,5 +255,10 @@ EMOJIS = {
             "description": "Remove code or files.",
             "name": "fire",
         },
+        {
+            "emoji": "🍱",
+            "description": "Add or update assets.",
+            "name": "bento",
+        },
     ]
 }
