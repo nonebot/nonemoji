@@ -25,9 +25,9 @@ def handle_no_subcommand(**_):
 
 def handle_hook(commit_msg_file: str, **_):
     file = Path(commit_msg_file)
-    original_msg = file.read_text()
+    original_msg = file.read_text(encoding="utf-8")
     new_msg = prompt(original_msg)
-    file.write_text(new_msg)
+    file.write_text(new_msg, encoding="utf-8")
 
 
 def handle_commit(

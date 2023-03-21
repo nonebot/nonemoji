@@ -8,7 +8,7 @@
 poetry add nonemoji --dev
 ```
 
-## pre-commit 使用
+## 在 pre-commit 中使用
 
 ```yaml
 # .pre-commit-config.yaml
@@ -27,7 +27,24 @@ repos:
         stages: [commit]
 
   - repo: https://github.com/nonebot/nonemoji
-    rev: v0.1.1
+    rev: v0.1.3
     hooks:
       - id: nonemoji
+        stages: [pre-commit-msg]
+```
+
+## 使用
+
+### 快速提交
+
+使用如下命令，选择一个 emoji 并填写提交信息：
+
+```bash
+nonemoji commit
+```
+
+### 交互式使用
+
+```bash
+nonemoji
 ```
