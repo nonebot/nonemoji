@@ -35,32 +35,16 @@ repos:
 
 ## 使用
 
-commit时使用`nonemoji`命令:
+### 快速提交
 
-```sh
-$ nonemoji
+使用如下命令，选择一个 emoji 并填写提交信息：
 
-[?] What do you want to do? (Use ↑ and ↓ to choose, Enter to submit)
-❯ Start to commit changes
-  List all available emojis
-  Search for an emoji
+```bash
+nonemoji commit
+```
 
-// 选择 Start to commit changes
+### 交互式使用
 
-[?] Choose a gitmoji: (Use ↑ and ↓ to choose, Enter to submit)
-❯ ✨  - Introduce new features.
-  🐛  - Fix a bug.
-  📝  - Add or update documentation.
-  📄  - Add or update license.
-  🎨  - Improve structure / format of the code.
-  ♻️   - Refactor code.
-  ✅  - Add, update, or pass tests.
-
-// 选择 🐛  - Fix a bug.
-
-[?] Choose a gitmoji: 🐛  - Fix a bug.
-[?] Enter the commit title: <你输入的内容>
-
-//...自动运行 git commit -m ":bug: <你输入的内容>"
-
+```bash
+nonemoji
 ```
