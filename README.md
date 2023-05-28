@@ -30,7 +30,7 @@ repos:
     rev: v0.1.3
     hooks:
       - id: nonemoji
-        stages: [pre-commit-msg]
+        stages: [prepare-commit-msg]
 ```
 
 ## 使用
