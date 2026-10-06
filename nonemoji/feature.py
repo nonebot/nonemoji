@@ -1,7 +1,7 @@
 import re
 import contextlib
-from dataclasses import dataclass
 from typing import Optional, cast
+from dataclasses import dataclass
 
 from wcwidth import wcswidth
 from noneprompt import Choice, ListPrompt, InputPrompt
